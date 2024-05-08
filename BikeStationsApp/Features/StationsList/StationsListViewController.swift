@@ -10,10 +10,16 @@ import UIKit
 class StationsListViewController: UIViewController {
 
     private let viewModel: StationsListViewModel
+    private var stations = [Station]() {
+        didSet {
+
+        }
+    }
     
     init(viewModel: StationsListViewModel = StationsListViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -27,3 +33,8 @@ class StationsListViewController: UIViewController {
     }
 }
 
+extension StationsListViewController: StationsListViewModelDelegate {
+    func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station]) {
+        self.stations = stations
+    }
+}

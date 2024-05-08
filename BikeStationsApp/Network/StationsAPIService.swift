@@ -14,7 +14,7 @@ protocol StationsAPI: APIClient {
 
 struct StationsAPIService: StationsAPI {
     func fetchStationInformation() -> AnyPublisher<[StationInfo], Error> {
-        return fetch(endpoint: StationEndpoints.fetchStationInformation, type: StationInfoResponseDto.self)
+        return fetch(endpoint: StationInfoEndpoint())
             .map { info in
                 info.data.stations.map(StationInfo.init)
             }
@@ -22,7 +22,7 @@ struct StationsAPIService: StationsAPI {
     }
     
     func fetchStationStatus() -> AnyPublisher<[StationStatus], Error> {
-        return fetch(endpoint: StationEndpoints.fetchStationStatus, type: StationStatusResponseDto.self)
+        return fetch(endpoint: StationStatusEndpoint())
             .map { status in
                 status.data.stations.map(StationStatus.init)
             }

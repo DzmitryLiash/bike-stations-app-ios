@@ -16,11 +16,7 @@ struct StationInfoDto: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id = "station_id"
-        case name
-        case address
+        case name, address, lat, lon, capacity
         case crossStreet = "cross_street"
-        case lat
-        case lon
-        case capacity
     }
 }

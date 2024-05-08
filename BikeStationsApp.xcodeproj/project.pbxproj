@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE2520B32BEC2CA0002ACB5A /* StationStatusEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520B22BEC2CA0002ACB5A /* StationStatusEndpoint.swift */; };
 		BE9B99752BEBB7EE00850DA4 /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */; };
-		BE9B99772BEBB81B00850DA4 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99762BEBB81B00850DA4 /* EndPoint.swift */; };
+		BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99762BEBB81B00850DA4 /* Endpoint.swift */; };
 		BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99782BEBB84E00850DA4 /* APIClient.swift */; };
 		BE9B997B2BEBB8E200850DA4 /* StationsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B997A2BEBB8E200850DA4 /* StationsAPIService.swift */; };
-		BE9B997D2BEBB98500850DA4 /* StationEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B997C2BEBB98500850DA4 /* StationEndpoints.swift */; };
+		BE9B997D2BEBB98500850DA4 /* StationInfoEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B997C2BEBB98500850DA4 /* StationInfoEndpoint.swift */; };
 		BE9B99822BEBBC6D00850DA4 /* StationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99812BEBBC6D00850DA4 /* StationStatus.swift */; };
 		BE9B99852BEBBE8300850DA4 /* StationsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99842BEBBE8300850DA4 /* StationsListViewModel.swift */; };
 		BE9B99892BEBC16700850DA4 /* StationInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99882BEBC16700850DA4 /* StationInfoDto.swift */; };
@@ -29,11 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE2520B22BEC2CA0002ACB5A /* StationStatusEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationStatusEndpoint.swift; sourceTree = "<group>"; };
 		BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
-		BE9B99762BEBB81B00850DA4 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		BE9B99762BEBB81B00850DA4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		BE9B99782BEBB84E00850DA4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		BE9B997A2BEBB8E200850DA4 /* StationsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsAPIService.swift; sourceTree = "<group>"; };
-		BE9B997C2BEBB98500850DA4 /* StationEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationEndpoints.swift; sourceTree = "<group>"; };
+		BE9B997C2BEBB98500850DA4 /* StationInfoEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoEndpoint.swift; sourceTree = "<group>"; };
 		BE9B99812BEBBC6D00850DA4 /* StationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationStatus.swift; sourceTree = "<group>"; };
 		BE9B99842BEBBE8300850DA4 /* StationsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsListViewModel.swift; sourceTree = "<group>"; };
 		BE9B99882BEBC16700850DA4 /* StationInfoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoDto.swift; sourceTree = "<group>"; };
@@ -102,15 +104,16 @@
 			isa = PBXGroup;
 			children = (
 				BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */,
-				BE9B99762BEBB81B00850DA4 /* EndPoint.swift */,
+				BE9B99762BEBB81B00850DA4 /* Endpoint.swift */,
 				BE9B99782BEBB84E00850DA4 /* APIClient.swift */,
 				BE9B997A2BEBB8E200850DA4 /* StationsAPIService.swift */,
-				BE9B997C2BEBB98500850DA4 /* StationEndpoints.swift */,
+				BE9B997C2BEBB98500850DA4 /* StationInfoEndpoint.swift */,
+				BE2520B22BEC2CA0002ACB5A /* StationStatusEndpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		BE9B99802BEBBB0400850DA4 /* Models Dto */ = {
+		BE9B99802BEBBB0400850DA4 /* ModelsDto */ = {
 			isa = PBXGroup;
 			children = (
 				BE9B998A2BEBC69B00850DA4 /* StationInfoDataDto.swift */,
@@ -120,7 +123,7 @@
 				BE9B99882BEBC16700850DA4 /* StationInfoDto.swift */,
 				BE9B99902BEBDF3200850DA4 /* StationStatusDto.swift */,
 			);
-			path = "Models Dto";
+			path = ModelsDto;
 			sourceTree = "<group>";
 		};
 		BE9B99832BEBBC7500850DA4 /* Models */ = {
@@ -155,7 +158,7 @@
 				BE9B99722BEBB5E900850DA4 /* App */,
 				BE9B996E2BEBB4C200850DA4 /* Features */,
 				BE9B99732BEBB7CB00850DA4 /* Network */,
-				BE9B99802BEBBB0400850DA4 /* Models Dto */,
+				BE9B99802BEBBB0400850DA4 /* ModelsDto */,
 				BE9B99832BEBBC7500850DA4 /* Models */,
 				BE9B99712BEBB5D500850DA4 /* Resources */,
 			);
@@ -232,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE9B997D2BEBB98500850DA4 /* StationEndpoints.swift in Sources */,
+				BE9B997D2BEBB98500850DA4 /* StationInfoEndpoint.swift in Sources */,
 				BE9B99822BEBBC6D00850DA4 /* StationStatus.swift in Sources */,
 				BE9B99892BEBC16700850DA4 /* StationInfoDto.swift in Sources */,
 				BEFBB0D72BEBA35400B3E46A /* StationsListViewController.swift in Sources */,
@@ -241,12 +244,13 @@
 				BE9B998D2BEBCD4F00850DA4 /* StationInfoResponseDto.swift in Sources */,
 				BE9B99752BEBB7EE00850DA4 /* HTTPRequestMethod.swift in Sources */,
 				BE9B99952BEBEB5F00850DA4 /* StationInfo.swift in Sources */,
+				BE2520B32BEC2CA0002ACB5A /* StationStatusEndpoint.swift in Sources */,
 				BE9B998B2BEBC69C00850DA4 /* StationInfoDataDto.swift in Sources */,
 				BE9B99972BEBEB8000850DA4 /* Station.swift in Sources */,
 				BE9B99852BEBBE8300850DA4 /* StationsListViewModel.swift in Sources */,
 				BE9B998F2BEBCD6700850DA4 /* StationStatusResponseDto.swift in Sources */,
 				BE9B99932BEBEAF700850DA4 /* StationStatusDataDto.swift in Sources */,
-				BE9B99772BEBB81B00850DA4 /* EndPoint.swift in Sources */,
+				BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */,
 				BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */,
 				BEFBB0D32BEBA35400B3E46A /* AppDelegate.swift in Sources */,
 			);

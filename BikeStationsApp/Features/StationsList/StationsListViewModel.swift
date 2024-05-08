@@ -8,7 +8,13 @@
 import Foundation
 import Combine
 
+protocol StationsListViewModelDelegate: AnyObject {
+    func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station])
+}
+
 class StationsListViewModel {
+    
+    weak var delegate: StationsListViewModelDelegate?
     
     private let stationsAPIService: StationsAPI
     
@@ -29,16 +35,23 @@ class StationsListViewModel {
             case .finished:
                 break
             }
-        } receiveValue: { (infoStations, statusStations) in
+        } receiveValue: { [weak self] (infoStations, statusStations) in
+            guard let self else {
+                return
+            }
+            
             let stations: [Station] = statusStations.compactMap { statusStation in
                 guard let infoStation = infoStations.first(where: { $0.id == statusStation.id }) else {
                     return nil
                 }
+                
                 return Station(info: infoStation, status: statusStation)
             }
             
-            print(stations.first)
+            delegate?.viewModel(self, didFetch: stations)
         }
         .store(in: &cancellables)
     }
 }
+
+
