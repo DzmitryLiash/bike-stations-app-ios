@@ -33,6 +33,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE9B996E2BEBB4C200850DA4 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BE9B996F2BEBB4D000850DA4 /* StationsList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BE9B996F2BEBB4D000850DA4 /* StationsList */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBB0D62BEBA35400B3E46A /* ViewController.swift */,
+			);
+			path = StationsList;
+			sourceTree = "<group>";
+		};
+		BE9B99712BEBB5D500850DA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBB0DB2BEBA35800B3E46A /* Assets.xcassets */,
+				BEFBB0DD2BEBA35800B3E46A /* LaunchScreen.storyboard */,
+				BEFBB0E02BEBA35800B3E46A /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE9B99722BEBB5E900850DA4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BEFBB0D22BEBA35400B3E46A /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		BEFBB0C62BEBA35400B3E46A = {
 			isa = PBXGroup;
 			children = (
@@ -52,11 +86,9 @@
 		BEFBB0D12BEBA35400B3E46A /* BikeStationsApp */ = {
 			isa = PBXGroup;
 			children = (
-				BEFBB0D22BEBA35400B3E46A /* AppDelegate.swift */,
-				BEFBB0D62BEBA35400B3E46A /* ViewController.swift */,
-				BEFBB0DB2BEBA35800B3E46A /* Assets.xcassets */,
-				BEFBB0DD2BEBA35800B3E46A /* LaunchScreen.storyboard */,
-				BEFBB0E02BEBA35800B3E46A /* Info.plist */,
+				BE9B99722BEBB5E900850DA4 /* App */,
+				BE9B996E2BEBB4C200850DA4 /* Features */,
+				BE9B99712BEBB5D500850DA4 /* Resources */,
 			);
 			path = BikeStationsApp;
 			sourceTree = "<group>";
@@ -277,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BikeStationsApp/Info.plist;
+				INFOPLIST_FILE = BikeStationsApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -303,7 +335,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BikeStationsApp/Info.plist;
+				INFOPLIST_FILE = BikeStationsApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
