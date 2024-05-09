@@ -15,10 +15,10 @@ protocol StationsListViewModelDelegate: AnyObject {
 class StationsListViewModel {
     
     weak var delegate: StationsListViewModelDelegate?
+        
+    private var cancellables = Set<AnyCancellable>()
     
     private let stationsAPIService: StationsAPI
-    
-    private var cancellables = Set<AnyCancellable>()
     
     init(stationsAPIService: StationsAPI = StationsAPIService()) {
         self.stationsAPIService = stationsAPIService
@@ -53,5 +53,3 @@ class StationsListViewModel {
         .store(in: &cancellables)
     }
 }
-
-

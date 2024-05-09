@@ -12,7 +12,6 @@ struct StationInfo: Hashable {
     let crossStreet: String
     let lat: Double
     let lon: Double
-    let capacity: Int
 }
 
 extension StationInfo {
@@ -23,6 +22,5 @@ extension StationInfo {
         self.crossStreet = dto.crossStreet
         self.lat = dto.lat
         self.lon = dto.lon
-        self.capacity = dto.capacity
     }
 }
