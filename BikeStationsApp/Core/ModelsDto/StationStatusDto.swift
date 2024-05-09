@@ -7,13 +7,11 @@
 
 struct StationStatusDto: Codable {
     let id: String
-    let numberVehiclesAvailable: Int
     let numberBikesAvailable: Int
     let numberDocksAvailable: Int
     
     enum CodingKeys: String, CodingKey {
         case id = "station_id"
-        case numberVehiclesAvailable = "num_vehicles_available"
         case numberBikesAvailable = "num_bikes_available"
         case numberDocksAvailable = "num_docks_available"
     }

@@ -12,11 +12,10 @@ struct StationInfoDto: Codable {
     let crossStreet: String
     let lat: Double
     let lon: Double
-    let capacity: Int
     
     enum CodingKeys: String, CodingKey {
         case id = "station_id"
-        case name, address, lat, lon, capacity
+        case name, address, lat, lon
         case crossStreet = "cross_street"
     }
 }

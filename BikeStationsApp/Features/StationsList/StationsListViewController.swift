@@ -7,18 +7,31 @@
 
 import UIKit
 
-class StationsListViewController: UIViewController {
+final class StationsListViewController: BaseViewController {
 
-    private let viewModel: StationsListViewModel
+    private typealias DataSource = UITableViewDiffableDataSource<Section, Station>
+    private typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Section, Station>
+    
+    private lazy var tableView = UITableView()
+    private lazy var dataSource = createDataSource()
+    
+    private enum Section {
+        case main
+    }
+    
     private var stations = [Station]() {
         didSet {
-
+            DispatchQueue.main.async {
+                self.setupDataSourceSnapshot()
+            }
         }
     }
     
+    private let viewModel: StationsListViewModel
+    
     init(viewModel: StationsListViewModel = StationsListViewModel()) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
         viewModel.delegate = self
     }
     
@@ -30,6 +43,74 @@ class StationsListViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.loadStations()
+    }
+    
+    private func createDataSource() -> DataSource {
+        DataSource(tableView: tableView) { tableView, indexPath, item in
+            guard let cell: StationsListCell = tableView.dequeueReusableCell(withIdentifier: StationsListCell.reuseIdentifier, for: indexPath) as? StationsListCell else {
+                
+                return UITableViewCell()
+            }
+            
+            cell.setup(id: item.info.id,
+                       address: item.info.address,
+                       name: item.info.name,
+                       numberBikesAvailable: item.status.numberBikesAvailable,
+                       numberDocksAvailable: item.status.numberDocksAvailable)
+            
+            return cell
+        }
+    }
+    
+    private func setupDataSourceSnapshot() {
+        var snapshot = DataSourceSnapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(stations)
+        dataSource.apply(snapshot)
+    }
+    
+    override func addSubviews() {
+        super.addSubviews()
+        
+        view.addSubview(tableView)
+    }
+    
+    override func setupSubviews() {
+        super.setupSubviews()
+        
+        view.backgroundColor = .background
+        tableView.backgroundColor = .background
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(StationsListCell.self, forCellReuseIdentifier: StationsListCell.reuseIdentifier)
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+    }
+    
+    override func setupConstraints() {
+        super.setupConstraints()
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+        ])
+    }
+}
+
+extension StationsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        208
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else {
+            return
+        }
+        
+        let detailViewController = StationDetailViewController()
+
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 
