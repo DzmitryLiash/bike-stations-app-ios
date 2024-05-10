@@ -12,7 +12,7 @@ protocol StationsListViewModelDelegate: AnyObject {
     func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station])
 }
 
-class StationsListViewModel {
+final class StationsListViewModel {
     
     weak var delegate: StationsListViewModelDelegate?
         

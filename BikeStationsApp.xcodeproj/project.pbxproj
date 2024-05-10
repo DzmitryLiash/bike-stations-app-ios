@@ -11,7 +11,8 @@
 		BE0366312BED43A9002CED8F /* StationStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0366302BED43A9002CED8F /* StationStatusView.swift */; };
 		BE0366332BED43E8002CED8F /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0366322BED43E8002CED8F /* StationView.swift */; };
 		BE0366352BED4437002CED8F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0366342BED4437002CED8F /* BaseView.swift */; };
-		BE2520B32BEC2CA0002ACB5A /* StationStatusEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520B22BEC2CA0002ACB5A /* StationStatusEndpoint.swift */; };
+		BE0366392BED6731002CED8F /* StationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0366382BED6731002CED8F /* StationDetailViewModel.swift */; };
+		BE03663B2BED76DF002CED8F /* StationPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE03663A2BED76DF002CED8F /* StationPointView.swift */; };
 		BE2520C22BECE7C5002ACB5A /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520C12BECE7C5002ACB5A /* ReuseIdentifier.swift */; };
 		BE2520C52BECE82F002ACB5A /* StationsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520C42BECE82F002ACB5A /* StationsListCell.swift */; };
 		BE2520C72BECE8DE002ACB5A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520C62BECE8DE002ACB5A /* BaseViewController.swift */; };
@@ -34,6 +35,7 @@
 		BEFBB0D72BEBA35400B3E46A /* StationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB0D62BEBA35400B3E46A /* StationsListViewController.swift */; };
 		BEFBB0DC2BEBA35800B3E46A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB0DB2BEBA35800B3E46A /* Assets.xcassets */; };
 		BEFBB0DF2BEBA35800B3E46A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB0DD2BEBA35800B3E46A /* LaunchScreen.storyboard */; };
+		BEFBF9352BEE4AA600CCD45C /* StationStatusEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBF9342BEE4AA600CCD45C /* StationStatusEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,8 @@
 		BE0366302BED43A9002CED8F /* StationStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationStatusView.swift; sourceTree = "<group>"; };
 		BE0366322BED43E8002CED8F /* StationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
 		BE0366342BED4437002CED8F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		BE2520B22BEC2CA0002ACB5A /* StationStatusEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationStatusEndpoint.swift; sourceTree = "<group>"; };
+		BE0366382BED6731002CED8F /* StationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailViewModel.swift; sourceTree = "<group>"; };
+		BE03663A2BED76DF002CED8F /* StationPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPointView.swift; sourceTree = "<group>"; };
 		BE2520C12BECE7C5002ACB5A /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 		BE2520C42BECE82F002ACB5A /* StationsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsListCell.swift; sourceTree = "<group>"; };
 		BE2520C62BECE8DE002ACB5A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 		BEFBB0DB2BEBA35800B3E46A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEFBB0DE2BEBA35800B3E46A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEFBB0E02BEBA35800B3E46A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEFBF9342BEE4AA600CCD45C /* StationStatusEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationStatusEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				BE03662C2BED28E1002CED8F /* StationDetailViewController.swift */,
+				BE0366382BED6731002CED8F /* StationDetailViewModel.swift */,
+				BE03663A2BED76DF002CED8F /* StationPointView.swift */,
 			);
 			path = StationDetail;
 			sourceTree = "<group>";
@@ -90,10 +96,9 @@
 		BE03662E2BED433B002CED8F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BEFBF9322BEE49CC00CCD45C /* UIComponents */,
 				BE9B99832BEBBC7500850DA4 /* Models */,
-				BE9B99802BEBBB0400850DA4 /* ModelsDto */,
-				BE0366372BED4636002CED8F /* Base */,
-				BE2520C32BECE7EB002ACB5A /* Extensions */,
+				BE2520C32BECE7EB002ACB5A /* Utils */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -101,8 +106,8 @@
 		BE0366362BED4586002CED8F /* StationView */ = {
 			isa = PBXGroup;
 			children = (
-				BE0366302BED43A9002CED8F /* StationStatusView.swift */,
 				BE0366322BED43E8002CED8F /* StationView.swift */,
+				BE0366302BED43A9002CED8F /* StationStatusView.swift */,
 			);
 			path = StationView;
 			sourceTree = "<group>";
@@ -116,12 +121,20 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		BE2520C32BECE7EB002ACB5A /* Extensions */ = {
+		BE2520C32BECE7EB002ACB5A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				BE2520C12BECE7C5002ACB5A /* ReuseIdentifier.swift */,
 			);
-			path = Extensions;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BE6BDC502BEE4C61006BCB1D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BE9B997A2BEBB8E200850DA4 /* StationsAPIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		BE9B996E2BEBB4C200850DA4 /* Features */ = {
@@ -129,7 +142,6 @@
 			children = (
 				BE03662B2BED28B4002CED8F /* StationDetail */,
 				BE9B996F2BEBB4D000850DA4 /* StationsList */,
-				BE0366362BED4586002CED8F /* StationView */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -165,17 +177,14 @@
 		BE9B99732BEBB7CB00850DA4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */,
-				BE9B99762BEBB81B00850DA4 /* Endpoint.swift */,
-				BE9B99782BEBB84E00850DA4 /* APIClient.swift */,
-				BE9B997A2BEBB8E200850DA4 /* StationsAPIService.swift */,
-				BE9B997C2BEBB98500850DA4 /* StationInfoEndpoint.swift */,
-				BE2520B22BEC2CA0002ACB5A /* StationStatusEndpoint.swift */,
+				BEFBF9362BEE4ABE00CCD45C /* Base */,
+				BEFBF9332BEE4A1200CCD45C /* EndPoints */,
+				BE9B99802BEBBB0400850DA4 /* DTO */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		BE9B99802BEBBB0400850DA4 /* ModelsDto */ = {
+		BE9B99802BEBBB0400850DA4 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				BE9B998A2BEBC69B00850DA4 /* StationInfoDataDto.swift */,
@@ -185,7 +194,7 @@
 				BE9B99882BEBC16700850DA4 /* StationInfoDto.swift */,
 				BE9B99902BEBDF3200850DA4 /* StationStatusDto.swift */,
 			);
-			path = ModelsDto;
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		BE9B99832BEBBC7500850DA4 /* Models */ = {
@@ -220,10 +229,39 @@
 				BE9B99722BEBB5E900850DA4 /* App */,
 				BE9B996E2BEBB4C200850DA4 /* Features */,
 				BE9B99732BEBB7CB00850DA4 /* Network */,
+				BE6BDC502BEE4C61006BCB1D /* Services */,
 				BE03662E2BED433B002CED8F /* Core */,
 				BE9B99712BEBB5D500850DA4 /* Resources */,
 			);
 			path = BikeStationsApp;
+			sourceTree = "<group>";
+		};
+		BEFBF9322BEE49CC00CCD45C /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				BE0366372BED4636002CED8F /* Base */,
+				BE0366362BED4586002CED8F /* StationView */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		BEFBF9332BEE4A1200CCD45C /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+				BE9B997C2BEBB98500850DA4 /* StationInfoEndpoint.swift */,
+				BEFBF9342BEE4AA600CCD45C /* StationStatusEndpoint.swift */,
+			);
+			path = EndPoints;
+			sourceTree = "<group>";
+		};
+		BEFBF9362BEE4ABE00CCD45C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */,
+				BE9B99762BEBB81B00850DA4 /* Endpoint.swift */,
+				BE9B99782BEBB84E00850DA4 /* APIClient.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +334,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFBF9352BEE4AA600CCD45C /* StationStatusEndpoint.swift in Sources */,
 				BE9B997D2BEBB98500850DA4 /* StationInfoEndpoint.swift in Sources */,
 				BE0366332BED43E8002CED8F /* StationView.swift in Sources */,
 				BE9B99822BEBBC6D00850DA4 /* StationStatus.swift in Sources */,
 				BE9B99892BEBC16700850DA4 /* StationInfoDto.swift in Sources */,
 				BEFBB0D72BEBA35400B3E46A /* StationsListViewController.swift in Sources */,
+				BE03663B2BED76DF002CED8F /* StationPointView.swift in Sources */,
 				BE9B997B2BEBB8E200850DA4 /* StationsAPIService.swift in Sources */,
 				BE2520C72BECE8DE002ACB5A /* BaseViewController.swift in Sources */,
 				BE9B99912BEBDF3200850DA4 /* StationStatusDto.swift in Sources */,
@@ -309,7 +349,6 @@
 				BE9B99752BEBB7EE00850DA4 /* HTTPRequestMethod.swift in Sources */,
 				BE9B99952BEBEB5F00850DA4 /* StationInfo.swift in Sources */,
 				BE0366352BED4437002CED8F /* BaseView.swift in Sources */,
-				BE2520B32BEC2CA0002ACB5A /* StationStatusEndpoint.swift in Sources */,
 				BE2520C52BECE82F002ACB5A /* StationsListCell.swift in Sources */,
 				BE2520C22BECE7C5002ACB5A /* ReuseIdentifier.swift in Sources */,
 				BE9B998B2BEBC69C00850DA4 /* StationInfoDataDto.swift in Sources */,
@@ -318,6 +357,7 @@
 				BE03662D2BED28E1002CED8F /* StationDetailViewController.swift in Sources */,
 				BE9B998F2BEBCD6700850DA4 /* StationStatusResponseDto.swift in Sources */,
 				BE9B99932BEBEAF700850DA4 /* StationStatusDataDto.swift in Sources */,
+				BE0366392BED6731002CED8F /* StationDetailViewModel.swift in Sources */,
 				BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */,
 				BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */,
 				BEFBB0D32BEBA35400B3E46A /* AppDelegate.swift in Sources */,
