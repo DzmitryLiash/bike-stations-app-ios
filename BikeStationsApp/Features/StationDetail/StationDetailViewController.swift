@@ -28,6 +28,7 @@ final class StationDetailViewController: BaseViewController {
     
     init(viewModel: StationDetailViewModel) {
         self.viewModel = viewModel
+
         super.init()
     }
         
@@ -48,7 +49,7 @@ final class StationDetailViewController: BaseViewController {
         
         [mapView, stationView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
-        stationView.setup(with: viewModel.station)
+        stationView.load(viewModel.stationViewViewModel)
     }
     
     override func setupConstraints() {

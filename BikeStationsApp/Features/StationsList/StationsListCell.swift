@@ -30,8 +30,8 @@ final class StationsListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(station: Station) {
-        stationView.setup(with: station)
+    func setup(with station: Station) {
+        stationView.load(StationViewViewModel(station: station))
     }
     
     private func addSubviews() {

@@ -14,9 +14,9 @@ enum StationStatusViewType {
 
 final class StationStatusView: BaseView {
         
-    var number: Int = .zero {
+    var numberLabelText: String = "0" {
         didSet {
-            numberLabel.text = String(number)
+            numberLabel.text = numberLabelText
         }
     }
     
@@ -62,7 +62,7 @@ final class StationStatusView: BaseView {
         stackView.axis = .vertical
         stackView.alignment = .center
         
-        numberLabel.text = String(number)
+        numberLabel.text = numberLabelText
         numberLabel.font = .systemFont(ofSize: Constants.numberLabelFontSize, weight: .semibold)
         
         textLabel.font = .systemFont(ofSize: Constants.textLabelFontSize)
