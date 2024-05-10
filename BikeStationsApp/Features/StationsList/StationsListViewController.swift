@@ -57,7 +57,7 @@ final class StationsListViewController: BaseViewController {
                 return UITableViewCell()
             }
             
-            cell.setup(station: item)
+            cell.setup(with: item)
 
             return cell
         }

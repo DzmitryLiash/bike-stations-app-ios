@@ -17,6 +17,7 @@
 		BE2520C52BECE82F002ACB5A /* StationsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520C42BECE82F002ACB5A /* StationsListCell.swift */; };
 		BE2520C72BECE8DE002ACB5A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2520C62BECE8DE002ACB5A /* BaseViewController.swift */; };
 		BE6BDC522BEE4EB0006BCB1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6BDC512BEE4EB0006BCB1D /* AppCoordinator.swift */; };
+		BE6BDC542BEE5467006BCB1D /* StationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6BDC532BEE5467006BCB1D /* StationViewViewModel.swift */; };
 		BE9B99752BEBB7EE00850DA4 /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */; };
 		BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99762BEBB81B00850DA4 /* Endpoint.swift */; };
 		BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99782BEBB84E00850DA4 /* APIClient.swift */; };
@@ -50,6 +51,7 @@
 		BE2520C42BECE82F002ACB5A /* StationsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsListCell.swift; sourceTree = "<group>"; };
 		BE2520C62BECE8DE002ACB5A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		BE6BDC512BEE4EB0006BCB1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BE6BDC532BEE5467006BCB1D /* StationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewViewModel.swift; sourceTree = "<group>"; };
 		BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
 		BE9B99762BEBB81B00850DA4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		BE9B99782BEBB84E00850DA4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0366322BED43E8002CED8F /* StationView.swift */,
+				BE6BDC532BEE5467006BCB1D /* StationViewViewModel.swift */,
 				BE0366302BED43A9002CED8F /* StationStatusView.swift */,
 			);
 			path = StationView;
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFBF9352BEE4AA600CCD45C /* StationStatusEndpoint.swift in Sources */,
+				BE6BDC542BEE5467006BCB1D /* StationViewViewModel.swift in Sources */,
 				BE9B997D2BEBB98500850DA4 /* StationInfoEndpoint.swift in Sources */,
 				BE0366332BED43E8002CED8F /* StationView.swift in Sources */,
 				BE9B99822BEBBC6D00850DA4 /* StationStatus.swift in Sources */,

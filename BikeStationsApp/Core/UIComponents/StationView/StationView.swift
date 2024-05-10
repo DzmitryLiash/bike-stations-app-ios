@@ -8,13 +8,13 @@
 import UIKit
 
 final class StationView: BaseView {
-    
+        
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let stackView = UIStackView()
     private let bikesView = StationStatusView(type: .bikes)
     private let placesView = StationStatusView(type: .places)
-    
+        
     private enum Constants {
         static let cornerRadius: CGFloat = 16
         static let titleLabelFontSize: CGFloat = 24
@@ -26,14 +26,13 @@ final class StationView: BaseView {
         static let stackViewTopAnchorConstant: CGFloat = 12
     }
     
-    func setup(with station: Station) {
-        titleLabel.text = "\(station.info.id) \(station.info.address)"
-        subtitleLabel.text = "500m • \(station.info.name)"
-        
-        bikesView.number = station.status.numberBikesAvailable
-        placesView.number = station.status.numberDocksAvailable
+    func load(_ viewModel: StationViewViewModel) {
+        titleLabel.text = viewModel.title
+        subtitleLabel.text = viewModel.subtitle
+        bikesView.numberLabelText = viewModel.bikesAvailableCount
+        placesView.numberLabelText = viewModel.docksAvailableCount
     }
-        
+            
     override func addSubviews() {
         super.addSubviews()
         
@@ -59,6 +58,7 @@ final class StationView: BaseView {
         }
         
         titleLabel.font = .systemFont(ofSize: Constants.titleLabelFontSize, weight: .bold)
+        
         subtitleLabel.font = .systemFont(ofSize: Constants.subtitleLabelFontSize)
         
         stackView.distribution = .fillProportionally

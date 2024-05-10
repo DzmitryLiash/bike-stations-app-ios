@@ -10,9 +10,9 @@ import MapKit
 
 final class StationDetailViewModel {
     
-    let station: Station
+    let stationViewViewModel: StationViewViewModel
     
-    var numberBikesAvailable: Int {
+    var bikesAvailableCount: Int {
         station.status.numberBikesAvailable
     }
     
@@ -21,8 +21,11 @@ final class StationDetailViewModel {
         static let coordinateSpanLongitudeDelta: CLLocationDegrees = 0.01
     }
     
+    private let station: Station
+    
     init(station: Station) {
         self.station = station
+        self.stationViewViewModel = StationViewViewModel(station: station)
     }
     
     func getAnnotation() -> MKPointAnnotation {
