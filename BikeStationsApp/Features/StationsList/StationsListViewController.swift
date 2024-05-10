@@ -19,6 +19,11 @@ final class StationsListViewController: BaseViewController {
         case main
     }
     
+    private enum Constants {
+        static let tableViewTopAnchorConstant: CGFloat = 20
+        static let tableViewHeightForRowConstant: CGFloat = 208
+    }
+    
     private var stations = [Station]() {
         didSet {
             DispatchQueue.main.async {
@@ -52,12 +57,8 @@ final class StationsListViewController: BaseViewController {
                 return UITableViewCell()
             }
             
-            cell.setup(id: item.info.id,
-                       address: item.info.address,
-                       name: item.info.name,
-                       numberBikesAvailable: item.status.numberBikesAvailable,
-                       numberDocksAvailable: item.status.numberDocksAvailable)
-            
+            cell.setup(station: item)
+
             return cell
         }
     }
@@ -90,7 +91,7 @@ final class StationsListViewController: BaseViewController {
         super.setupConstraints()
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: Constants.tableViewTopAnchorConstant),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
@@ -100,7 +101,7 @@ final class StationsListViewController: BaseViewController {
 
 extension StationsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        208
+        Constants.tableViewHeightForRowConstant
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,8 +109,8 @@ extension StationsListViewController: UITableViewDelegate {
             return
         }
         
-        let detailViewController = StationDetailViewController()
-
+        let detailViewModel = StationDetailViewModel(station: item)
+        let detailViewController = StationDetailViewController(viewModel: detailViewModel)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

@@ -12,9 +12,9 @@ enum StationStatusViewType {
     case places
 }
 
-class StationStatusView: BaseView {
+final class StationStatusView: BaseView {
         
-    var number: Int = 0 {
+    var number: Int = .zero {
         didSet {
             numberLabel.text = String(number)
         }
@@ -25,15 +25,18 @@ class StationStatusView: BaseView {
     private let numberLabel = UILabel()
     private let textLabel = UILabel()
     
+    private enum Constants {
+        static let imageViewHeightAnchorConstant: CGFloat = 24
+        static let imageViewWidthAnchorConstant: CGFloat = imageViewHeightAnchorConstant
+        static let numberLabelFontSize: CGFloat = 44
+        static let textLabelFontSize: CGFloat = 12
+    }
+    
     private var type: StationStatusViewType
     
     init(type: StationStatusViewType) {
         self.type = type
         super.init()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func addSubviews() {
@@ -60,9 +63,9 @@ class StationStatusView: BaseView {
         stackView.alignment = .center
         
         numberLabel.text = String(number)
-        numberLabel.font = .systemFont(ofSize: 44, weight: .semibold)
+        numberLabel.font = .systemFont(ofSize: Constants.numberLabelFontSize, weight: .semibold)
         
-        textLabel.font = .systemFont(ofSize: 12)
+        textLabel.font = .systemFont(ofSize: Constants.textLabelFontSize)
         
         switch type {
         case .bikes:
@@ -79,8 +82,8 @@ class StationStatusView: BaseView {
         super.setupConstraints()
         
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 24),
-            imageView.widthAnchor.constraint(equalToConstant: 24),
+            imageView.heightAnchor.constraint(equalToConstant: Constants.imageViewHeightAnchorConstant),
+            imageView.widthAnchor.constraint(equalToConstant: Constants.imageViewWidthAnchorConstant),
             
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -89,4 +92,3 @@ class StationStatusView: BaseView {
         ])
     }
 }
-
