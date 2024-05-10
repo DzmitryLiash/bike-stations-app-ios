@@ -15,7 +15,8 @@ protocol StationsListViewModelDelegate: AnyObject {
 final class StationsListViewModel {
     
     weak var delegate: StationsListViewModelDelegate?
-        
+    weak var coordinator: StationsListCoordinatorProtocol?
+    
     private var cancellables = Set<AnyCancellable>()
     
     private let stationsAPIService: StationsAPI
@@ -51,5 +52,9 @@ final class StationsListViewModel {
             delegate?.viewModel(self, didFetch: stations)
         }
         .store(in: &cancellables)
+    }
+    
+    func showDetails(for station: Station) {
+        coordinator?.showDetails(for: station)
     }
 }

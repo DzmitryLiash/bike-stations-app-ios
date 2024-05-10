@@ -109,9 +109,7 @@ extension StationsListViewController: UITableViewDelegate {
             return
         }
         
-        let detailViewModel = StationDetailViewModel(station: item)
-        let detailViewController = StationDetailViewController(viewModel: detailViewModel)
-        navigationController?.pushViewController(detailViewController, animated: true)
+        viewModel.showDetails(for: item)
     }
 }
 
