@@ -8,11 +8,11 @@
 final class StationViewViewModel {
     
     var title: String {
-        "\(station.info.id) \(station.info.address)"
+        "\(station.info.id) \(station.info.name)"
     }
     
     var subtitle: String {
-        "500m • \(station.info.name)"
+        "\(getDistance())\(station.info.address)"
     }
     
     var bikesAvailableCount: String {
@@ -27,5 +27,24 @@ final class StationViewViewModel {
     
     init(station: Station) {
         self.station = station
+    }
+    
+    private func getDistance() -> String {
+        guard let distance = station.distance else {
+            return ""
+        }
+        
+        if distance > 1000 {
+            let kilometers = Int(distance / 1000)
+            let meters = Int(distance) % 1000
+            
+            if meters == 0 {
+                return "\(kilometers)km • "
+            } else {
+                return "\(kilometers)km \(meters)m • "
+            }
+        }
+        
+        return "\(Int(distance))m • "
     }
 }

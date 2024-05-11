@@ -52,6 +52,7 @@ class StationPointView: BaseView {
         bikeImageView.image = .bike
         
         numberBikesAvailableLabel.text = String(numberBikesAvailable)
+        numberBikesAvailableLabel.textColor = .text
     }
     
     override func setupConstraints() {

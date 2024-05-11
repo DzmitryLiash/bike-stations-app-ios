@@ -78,7 +78,7 @@ extension StationDetailViewController: MKMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "stationPointAnnotationView")
         
         if annotationView == nil {
-            let stationPointView = StationPointView(numberBikesAvailable: viewModel.numberBikesAvailable)
+            let stationPointView = StationPointView(numberBikesAvailable: viewModel.bikesAvailableCount)
             stationPointView.frame = CGRect(x: .zero, y: .zero, width: Constants.stationPointViewWidth, height: Constants.stationPointViewHeight)
             stationPointView.layer.cornerRadius = Constants.stationPointViewCornerRadius
             

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreLocation
 
 protocol StationsListViewModelDelegate: AnyObject {
     func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station])
@@ -17,17 +18,35 @@ final class StationsListViewModel {
     weak var delegate: StationsListViewModelDelegate?
     weak var coordinator: StationsListCoordinatorProtocol?
     
+    private var locationService = LocationService()
     private var cancellables = Set<AnyCancellable>()
     
     private let stationsAPIService: StationsAPI
+    private var userLocation: CLLocation?
     
     init(stationsAPIService: StationsAPI = StationsAPIService()) {
         self.stationsAPIService = stationsAPIService
+        
+        locationService.requestLocationAuthorization()
+        locationService.delegate = self
+        userLocation = locationService.location
     }
     
     func loadStations() {
         Publishers.Zip(stationsAPIService.fetchStationInformation(),
                        stationsAPIService.fetchStationStatus())
+        .map { [weak self] infoStations, statusStations -> [Station] in
+            statusStations.compactMap { statusStation in
+                guard let infoStation = infoStations.first(where: { $0.id == statusStation.id }) else {
+                    return nil
+                }
+                
+                let distance = self?.getDistance(latitude: infoStation.lat, longitude: infoStation.lon)
+                
+                return Station(info: infoStation, status: statusStation, distance: distance)
+            }
+            .sorted { $0.distance ?? 0 < $1.distance ?? 0 }
+        }
         .receive(on: RunLoop.main)
         .sink { completion in
             switch completion {
@@ -36,17 +55,9 @@ final class StationsListViewModel {
             case .finished:
                 break
             }
-        } receiveValue: { [weak self] (infoStations, statusStations) in
+        } receiveValue: { [weak self] stations in
             guard let self else {
                 return
-            }
-            
-            let stations: [Station] = statusStations.compactMap { statusStation in
-                guard let infoStation = infoStations.first(where: { $0.id == statusStation.id }) else {
-                    return nil
-                }
-                
-                return Station(info: infoStation, status: statusStation)
             }
             
             delegate?.viewModel(self, didFetch: stations)
@@ -56,5 +67,25 @@ final class StationsListViewModel {
     
     func showDetails(for station: Station) {
         coordinator?.showDetails(for: station)
+    }
+    
+    private func getDistance(latitude: Double, longitude: Double) -> Double? {
+        guard let userLocation else {
+            return nil
+        }
+        
+        let destinationLocation = CLLocation(latitude: latitude, longitude: longitude)
+        
+        return userLocation.distance(from: destinationLocation)
+    }
+}
+
+extension StationsListViewModel: LocationServiceDelegate {
+    func didUpdateLocation(_ location: CLLocation) {
+        userLocation = location
+    }
+    
+    func didFailWithError(_ error: Error) {
+        print(error)
     }
 }

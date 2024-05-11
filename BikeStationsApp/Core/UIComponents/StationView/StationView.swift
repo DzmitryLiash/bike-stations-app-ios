@@ -58,8 +58,10 @@ final class StationView: BaseView {
         }
         
         titleLabel.font = .systemFont(ofSize: Constants.titleLabelFontSize, weight: .bold)
+        titleLabel.textColor = .text
         
         subtitleLabel.font = .systemFont(ofSize: Constants.subtitleLabelFontSize)
+        subtitleLabel.textColor = .text
         
         stackView.distribution = .fillProportionally
     }
