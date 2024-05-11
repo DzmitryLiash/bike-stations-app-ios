@@ -72,9 +72,13 @@ final class StationStatusView: BaseView {
             imageView.image = .bike
             numberLabel.textColor = .positive
             textLabel.text = "Bikes available"
+            textLabel.textColor = .text
+            
         case .places:
             imageView.image = .lock
+            numberLabel.textColor = .text
             textLabel.text = "Places available"
+            textLabel.textColor = .text
         }
     }
     

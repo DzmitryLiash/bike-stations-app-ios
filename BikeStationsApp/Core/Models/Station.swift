@@ -8,4 +8,5 @@
  struct Station: Hashable {
     let info: StationInfo
     let status: StationStatus
+    let distance: Double?
 }
