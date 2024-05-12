@@ -58,10 +58,7 @@ class BaseViewController: UIViewController {
             switch appError {
             case .fetchSectionsFailed:
                 showAlert(message: appError.localizedDescription, retryAction: retryAction)
-            case .unknownAuthorizationStatus,
-                 .locationAccessDenied,
-                 .locationUnknown,
-                 .locationErrorUnknown:
+            default:
                 showAlert(message: appError.localizedDescription)
             }
         } else {
