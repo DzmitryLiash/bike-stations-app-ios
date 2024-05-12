@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StationsListViewController.swift
 //  BikeStationsApp
 //
 //  Created by Dzmitry Liashchou on 08/05/2024.
@@ -24,24 +24,12 @@ final class StationsListViewController: BaseViewController {
         static let tableViewHeightForRowConstant: CGFloat = 208
     }
     
-    private var stations = [Station]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.setupDataSourceSnapshot()
-            }
-        }
-    }
-    
     private let viewModel: StationsListViewModel
     
     init(viewModel: StationsListViewModel = StationsListViewModel()) {
         self.viewModel = viewModel
         super.init()
         viewModel.delegate = self
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -66,7 +54,7 @@ final class StationsListViewController: BaseViewController {
     private func setupDataSourceSnapshot() {
         var snapshot = DataSourceSnapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(stations)
+        snapshot.appendItems(viewModel.stations)
         dataSource.apply(snapshot)
     }
     
@@ -114,15 +102,19 @@ extension StationsListViewController: UITableViewDelegate {
 }
 
 extension StationsListViewController: StationsListViewModelDelegate {
-    func viewModel(_ viewModel: StationsListViewModel, didOccurr error: AppError) {
-        handle(error: error) {
-            if error == .fetchSectionsFailed {
-                viewModel.loadStations()
-            }
+    func viewModelDidFetchStations(_ viewModel: StationsListViewModel) {
+        DispatchQueue.main.async {
+            self.setupDataSourceSnapshot()
         }
     }
     
-    func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station]) {
-        self.stations = stations
+    func viewModel(_ viewModel: StationsListViewModel, didOccurr error: AppError) {
+        if error == .fetchSectionsFailed {
+            handle(error: error) {
+                viewModel.loadStations()
+            }
+        } else {
+            handle(error: error)
+        }
     }
 }
