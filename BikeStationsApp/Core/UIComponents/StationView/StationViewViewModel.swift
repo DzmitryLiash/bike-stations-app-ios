@@ -10,9 +10,7 @@ import UIKit
 final class StationViewViewModel {
     
     private enum Constants {
-      
         static let subtitleLabelFontSize: CGFloat = 12
-        
     }
     
     var title: String {

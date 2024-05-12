@@ -24,6 +24,7 @@ final class StationView: BaseView {
         static let titleLabelLeadingAnchorConstant: CGFloat = 16
         static let subtitleLabelTopAnchorConstant: CGFloat = 6
         static let stackViewTopAnchorConstant: CGFloat = 12
+        static let stackViewBottomAnchorConstant: CGFloat = -16
     }
     
     func load(_ viewModel: StationViewViewModel) {
@@ -79,7 +80,8 @@ final class StationView: BaseView {
             
             stackView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: Constants.stackViewTopAnchorConstant),
             stackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
+            stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: Constants.stackViewBottomAnchorConstant)
         ])
     }
 }
