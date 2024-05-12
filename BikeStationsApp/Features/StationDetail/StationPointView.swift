@@ -18,9 +18,10 @@ class StationPointView: BaseView {
         static let stackViewTopAnchorConstant: CGFloat = 4
         static let stackViewTrailingAnchorConstant: CGFloat = -6
         static let stackViewBottomAnchorConstant: CGFloat = -4
-        static let stackViewLeadingAnchorConstant: CGFloat = 6
+        static let stackViewLeadingAnchorConstant: CGFloat = 5
         static let bikeImageViewHeight: CGFloat = 16
         static let bikeImageViewWidth: CGFloat = bikeImageViewHeight
+        static let numberBikesAvailableLabelFontSize: CGFloat = 18
     }
         
     private let numberBikesAvailable: Int
@@ -52,6 +53,7 @@ class StationPointView: BaseView {
         bikeImageView.image = .bike
         
         numberBikesAvailableLabel.text = String(numberBikesAvailable)
+        numberBikesAvailableLabel.font = UIFont(name: Fonts.manropeBold, size: Constants.numberBikesAvailableLabelFontSize)
         numberBikesAvailableLabel.textColor = .text
     }
     

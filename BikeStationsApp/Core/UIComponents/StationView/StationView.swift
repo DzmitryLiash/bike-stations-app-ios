@@ -24,11 +24,12 @@ final class StationView: BaseView {
         static let titleLabelLeadingAnchorConstant: CGFloat = 16
         static let subtitleLabelTopAnchorConstant: CGFloat = 6
         static let stackViewTopAnchorConstant: CGFloat = 12
+        static let stackViewBottomAnchorConstant: CGFloat = -16
     }
     
     func load(_ viewModel: StationViewViewModel) {
         titleLabel.text = viewModel.title
-        subtitleLabel.text = viewModel.subtitle
+        subtitleLabel.attributedText = viewModel.subtitle
         bikesView.numberLabelText = viewModel.bikesAvailableCount
         placesView.numberLabelText = viewModel.docksAvailableCount
     }
@@ -57,10 +58,9 @@ final class StationView: BaseView {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        titleLabel.font = .systemFont(ofSize: Constants.titleLabelFontSize, weight: .bold)
+        titleLabel.font = UIFont(name: Fonts.manropeBold, size: Constants.titleLabelFontSize) 
         titleLabel.textColor = .text
         
-        subtitleLabel.font = .systemFont(ofSize: Constants.subtitleLabelFontSize)
         subtitleLabel.textColor = .text
         
         stackView.distribution = .fillProportionally
@@ -80,7 +80,8 @@ final class StationView: BaseView {
             
             stackView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: Constants.stackViewTopAnchorConstant),
             stackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor)
+            stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            stackView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: Constants.stackViewBottomAnchorConstant)
         ])
     }
 }
