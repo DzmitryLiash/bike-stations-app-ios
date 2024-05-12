@@ -28,7 +28,7 @@ final class StationView: BaseView {
     
     func load(_ viewModel: StationViewViewModel) {
         titleLabel.text = viewModel.title
-        subtitleLabel.text = viewModel.subtitle
+        subtitleLabel.attributedText = viewModel.subtitle
         bikesView.numberLabelText = viewModel.bikesAvailableCount
         placesView.numberLabelText = viewModel.docksAvailableCount
     }
@@ -57,10 +57,9 @@ final class StationView: BaseView {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        titleLabel.font = .systemFont(ofSize: Constants.titleLabelFontSize, weight: .bold)
+        titleLabel.font = UIFont(name: Fonts.manropeBold, size: Constants.titleLabelFontSize) 
         titleLabel.textColor = .text
         
-        subtitleLabel.font = .systemFont(ofSize: Constants.subtitleLabelFontSize)
         subtitleLabel.textColor = .text
         
         stackView.distribution = .fillProportionally

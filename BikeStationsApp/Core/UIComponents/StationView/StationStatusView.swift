@@ -63,9 +63,9 @@ final class StationStatusView: BaseView {
         stackView.alignment = .center
         
         numberLabel.text = numberLabelText
-        numberLabel.font = .systemFont(ofSize: Constants.numberLabelFontSize, weight: .semibold)
+        numberLabel.font = UIFont(name: Fonts.manropeBold, size: Constants.numberLabelFontSize)
         
-        textLabel.font = .systemFont(ofSize: Constants.textLabelFontSize)
+        textLabel.font = UIFont(name: Fonts.manropeMedium, size: Constants.textLabelFontSize)
         
         switch type {
         case .bikes:
