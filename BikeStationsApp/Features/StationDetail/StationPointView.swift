@@ -53,7 +53,7 @@ class StationPointView: BaseView {
         bikeImageView.image = .bike
         
         numberBikesAvailableLabel.text = String(numberBikesAvailable)
-        numberBikesAvailableLabel.font = UIFont(name: Fonts.manropeBold, size: Constants.numberBikesAvailableLabelFontSize)
+        numberBikesAvailableLabel.font = UIFont(name: AppFont.manropeBold, size: Constants.numberBikesAvailableLabelFontSize)
         numberBikesAvailableLabel.textColor = .text
     }
     
