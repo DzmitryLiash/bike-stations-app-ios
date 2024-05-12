@@ -34,6 +34,7 @@
 		BE9B99932BEBEAF700850DA4 /* StationStatusDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99922BEBEAF700850DA4 /* StationStatusDataDto.swift */; };
 		BE9B99952BEBEB5F00850DA4 /* StationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99942BEBEB5F00850DA4 /* StationInfo.swift */; };
 		BE9B99972BEBEB8000850DA4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99962BEBEB8000850DA4 /* Station.swift */; };
+		BEC660A12BF0C267004DCBFC /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */; };
 		BED90C9E2BF011BF0031B0E2 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED90C972BF011A40031B0E2 /* Manrope-Bold.ttf */; };
 		BED90CA22BF011CB0031B0E2 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED90C9C2BF011AD0031B0E2 /* Manrope-Medium.ttf */; };
 		BED90CA82BF013130031B0E2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED90CA72BF013130031B0E2 /* Fonts.swift */; };
@@ -72,6 +73,7 @@
 		BE9B99922BEBEAF700850DA4 /* StationStatusDataDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationStatusDataDto.swift; sourceTree = "<group>"; };
 		BE9B99942BEBEB5F00850DA4 /* StationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfo.swift; sourceTree = "<group>"; };
 		BE9B99962BEBEB8000850DA4 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
 		BED90C972BF011A40031B0E2 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		BED90C9C2BF011AD0031B0E2 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		BED90CA72BF013130031B0E2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				BE2520C12BECE7C5002ACB5A /* ReuseIdentifier.swift */,
+				BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BE0366392BED6731002CED8F /* StationDetailViewModel.swift in Sources */,
 				BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */,
 				BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */,
+				BEC660A12BF0C267004DCBFC /* PublisherExtension.swift in Sources */,
 				BEFBB0D32BEBA35400B3E46A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

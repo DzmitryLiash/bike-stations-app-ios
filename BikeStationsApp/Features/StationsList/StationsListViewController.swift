@@ -114,6 +114,10 @@ extension StationsListViewController: UITableViewDelegate {
 }
 
 extension StationsListViewController: StationsListViewModelDelegate {
+    func viewModel(_ viewModel: StationsListViewModel, didOccurr error: Error) {
+        print(error)
+    }
+    
     func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station]) {
         self.stations = stations
     }
