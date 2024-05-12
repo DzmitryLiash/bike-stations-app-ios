@@ -53,37 +53,17 @@ class BaseViewController: UIViewController {
     
     func setupSubviews() {}
     
-    func handle(error: Error, retryAction: @escaping () -> Void) {
+    func handle(error: Error) {
         if let appError = error as? AppError {
-            switch appError {
-            case .fetchSectionsFailed:
-                showAlert(message: appError.localizedDescription, retryAction: retryAction)
-            case .unknownAuthorizationStatus:
-                showAlert(message: appError.localizedDescription)
-            case .locationAccessDenied:
-                showAlert(message: appError.localizedDescription)
-            case .locationUnknown:
-                showAlert(message: appError.localizedDescription)
-            case .locationErrorUnknown:
-                showAlert(message: appError.localizedDescription)
-            }
+            showAlert(message: appError.localizedDescription)
         } else {
             showAlert(message: "An unknown error occurred. Please try again later.")
         }
     }
-    
-    private func showAlert(message: String, retryAction: (() -> Void)? = nil) {
+
+    private func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        
-        if let retryAction = retryAction {
-            alert.addAction(UIAlertAction(title: "Retry", style: .default) { _ in
-                retryAction()
-            })
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default))
-        } else {
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         
         present(alert, animated: true)
     }
