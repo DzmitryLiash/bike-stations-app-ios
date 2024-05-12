@@ -13,7 +13,7 @@ import CoreLocation
 
 protocol LocationServiceDelegate: AnyObject {
     func didUpdateLocation(_ location: CLLocation)
-    func didFailWithError(_ error: Error)
+    func didFailWithError(_ error: AppError)
 }
 
 class LocationService: NSObject {
@@ -44,15 +44,13 @@ extension LocationService: CLLocationManagerDelegate {
             locationManager.requestLocation()
             
         case .restricted, .denied:
-            let error = NSError(domain: "LocationService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Location access is denied."])
-            
-            delegate?.didFailWithError(error)
+            delegate?.didFailWithError(.locationAccessDenied)
             
         case .notDetermined:
             break
             
         @unknown default:
-            fatalError("Unknown location authorization status.")
+            delegate?.didFailWithError(.locationErrorUnknown)
         }
     }
     
@@ -65,6 +63,17 @@ extension LocationService: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        delegate?.didFailWithError(error)
+        var appError: AppError
+        
+        switch error {
+        case CLError.denied:
+            appError = .locationAccessDenied
+        case CLError.locationUnknown:
+            appError = .locationUnknown
+        default:
+            appError = .locationErrorUnknown
+        }
+        
+        delegate?.didFailWithError(appError)
     }
 }

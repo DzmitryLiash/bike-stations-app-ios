@@ -11,7 +11,7 @@ import CoreLocation
 
 protocol StationsListViewModelDelegate: AnyObject {
     func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station])
-    func viewModel(_ viewModel: StationsListViewModel, didOccurr error: Error)
+    func viewModel(_ viewModel: StationsListViewModel, didOccurr error: AppError)
 }
 
 final class StationsListViewModel {
@@ -62,8 +62,8 @@ final class StationsListViewModel {
             switch result {
             case let .success(stations):
                 delegate?.viewModel(self, didFetch: stations)
-            case let .failure(error):
-                delegate?.viewModel(self, didOccurr: error)
+            case .failure:
+                delegate?.viewModel(self, didOccurr: .fetchSectionsFailed)
             }
         }
         .store(in: &cancellables)
@@ -89,7 +89,7 @@ extension StationsListViewModel: LocationServiceDelegate {
         userLocation = location
     }
     
-    func didFailWithError(_ error: Error) {
-        print(error)
+    func didFailWithError(_ error: AppError) {
+        delegate?.viewModel(self, didOccurr: error)
     }
 }
