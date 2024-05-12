@@ -85,6 +85,20 @@ final class StationsListViewController: BaseViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
     }
+    
+    override func handle(error: Error) {
+        if let appError = error as? AppError, appError == .fetchSectionsFailed {
+            let alert = UIAlertController(title: "Error", message: appError.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try again", style: .cancel) { [weak self] _ in
+                self?.viewModel.loadStations()
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+            
+            present(alert, animated: true)
+        } else {
+            handle(error: error)
+        }
+    }
 }
 
 extension StationsListViewController: UITableViewDelegate {
@@ -109,12 +123,6 @@ extension StationsListViewController: StationsListViewModelDelegate {
     }
     
     func viewModel(_ viewModel: StationsListViewModel, didOccurr error: AppError) {
-        if error == .fetchSectionsFailed {
-            handle(error: error) {
-                viewModel.loadStations()
-            }
-        } else {
-            handle(error: error)
-        }
+        handle(error: error)
     }
 }
