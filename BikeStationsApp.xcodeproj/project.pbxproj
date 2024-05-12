@@ -555,9 +555,12 @@
 				DEVELOPMENT_TEAM = FTBRR688DQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BikeStationsApp/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -582,9 +585,12 @@
 				DEVELOPMENT_TEAM = FTBRR688DQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BikeStationsApp/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
