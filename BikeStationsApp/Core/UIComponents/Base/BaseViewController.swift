@@ -53,18 +53,15 @@ class BaseViewController: UIViewController {
     
     func setupSubviews() {}
     
-    func handle(error: Error, retryAction: @escaping () -> Void) {
+    func handle(error: Error, retryAction: (() -> Void)? = nil) {
         if let appError = error as? AppError {
             switch appError {
             case .fetchSectionsFailed:
                 showAlert(message: appError.localizedDescription, retryAction: retryAction)
-            case .unknownAuthorizationStatus:
-                showAlert(message: appError.localizedDescription)
-            case .locationAccessDenied:
-                showAlert(message: appError.localizedDescription)
-            case .locationUnknown:
-                showAlert(message: appError.localizedDescription)
-            case .locationErrorUnknown:
+            case .unknownAuthorizationStatus,
+                 .locationAccessDenied,
+                 .locationUnknown,
+                 .locationErrorUnknown:
                 showAlert(message: appError.localizedDescription)
             }
         } else {

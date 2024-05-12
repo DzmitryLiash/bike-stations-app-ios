@@ -10,7 +10,7 @@ import Combine
 import CoreLocation
 
 protocol StationsListViewModelDelegate: AnyObject {
-    func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station])
+    func viewModelDidFetchStations(_ viewModel: StationsListViewModel)
     func viewModel(_ viewModel: StationsListViewModel, didOccurr error: AppError)
 }
 
@@ -18,6 +18,8 @@ final class StationsListViewModel {
     
     weak var delegate: StationsListViewModelDelegate?
     weak var coordinator: StationsListCoordinatorProtocol?
+    
+    var stations = [Station]()
     
     private var locationService = LocationService()
     private var cancellables = Set<AnyCancellable>()
@@ -52,6 +54,9 @@ final class StationsListViewModel {
         .map { stations in
             stations.sorted { $0.distance ?? 0 < $1.distance ?? 0 }
         }
+        .handleEvents(receiveOutput: { stations in
+            self.stations = stations
+        })
         .convertToResult()
         .receive(on: RunLoop.main)
         .sink { [weak self] result in
@@ -60,8 +65,8 @@ final class StationsListViewModel {
             }
             
             switch result {
-            case let .success(stations):
-                delegate?.viewModel(self, didFetch: stations)
+            case .success:
+                delegate?.viewModelDidFetchStations(self)
             case .failure:
                 delegate?.viewModel(self, didOccurr: .fetchSectionsFailed)
             }
