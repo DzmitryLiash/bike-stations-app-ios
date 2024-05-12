@@ -5,54 +5,13 @@
 //  Created by Dzmitry Liashchou on 10/05/2024.
 //
 
-import UIKit
-
 final class StationViewViewModel {
-    
-    private enum Constants {
-        static let subtitleLabelFontSize: CGFloat = 12
-    }
     
     var title: String {
         "\(station.info.id) \(station.info.name)"
     }
     
-    var subtitle: NSMutableAttributedString {
-        let distance = getDistance()
-        let distanceAttributedString = NSMutableAttributedString(string: distance)
-        let address = distance.isEmpty ? station.info.address : " • \(station.info.address)"
-        let addressAttributedString = NSMutableAttributedString(string: address)
-        
-        distanceAttributedString.addAttribute(.font,
-                                              value: UIFont(name: Fonts.manropeBold,
-                                                            size: Constants.subtitleLabelFontSize) ?? UIFont.boldSystemFont(ofSize: Constants.subtitleLabelFontSize),
-                                              range: NSRange(location: 0, length: distance.count))
-        addressAttributedString.addAttribute(.font,
-                                             value: UIFont(name: Fonts.manropeMedium, size: Constants.subtitleLabelFontSize) ?? UIFont.systemFont(ofSize: Constants.subtitleLabelFontSize, weight: .medium),
-                                             range: NSRange(location: 0, length: address.count))
-        
-        let combinedAttributedString = NSMutableAttributedString()
-        combinedAttributedString.append(distanceAttributedString)
-        combinedAttributedString.append(addressAttributedString)
-
-        return combinedAttributedString
-    }
-    
-    var bikesAvailableCount: String {
-        String(station.status.numberBikesAvailable)
-    }
-    
-    var docksAvailableCount: String {
-        String(station.status.numberDocksAvailable)
-    }
-    
-    private let station: Station
-    
-    init(station: Station) {
-        self.station = station
-    }
-    
-    private func getDistance() -> String {
+    var distance: String {
         guard let distance = station.distance else {
             return ""
         }
@@ -69,5 +28,23 @@ final class StationViewViewModel {
         }
         
         return "\(Int(distance))m"
+    }
+    
+    var address: String {
+        station.info.address
+    }
+    
+    var bikesAvailableCount: String {
+        String(station.status.numberBikesAvailable)
+    }
+    
+    var docksAvailableCount: String {
+        String(station.status.numberDocksAvailable)
+    }
+    
+    private let station: Station
+    
+    init(station: Station) {
+        self.station = station
     }
 }

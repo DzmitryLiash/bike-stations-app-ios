@@ -14,7 +14,7 @@ final class StationView: BaseView {
     private let stackView = UIStackView()
     private let bikesView = StationStatusView(type: .bikes)
     private let placesView = StationStatusView(type: .places)
-        
+    
     private enum Constants {
         static let cornerRadius: CGFloat = 16
         static let titleLabelFontSize: CGFloat = 24
@@ -29,11 +29,11 @@ final class StationView: BaseView {
     
     func load(_ viewModel: StationViewViewModel) {
         titleLabel.text = viewModel.title
-        subtitleLabel.attributedText = viewModel.subtitle
+        subtitleLabel.attributedText = getAttributedSubtitleText(with: viewModel.distance, viewModel.address)
         bikesView.numberLabelText = viewModel.bikesAvailableCount
         placesView.numberLabelText = viewModel.docksAvailableCount
     }
-            
+    
     override func addSubviews() {
         super.addSubviews()
         
@@ -58,7 +58,7 @@ final class StationView: BaseView {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        titleLabel.font = UIFont(name: Fonts.manropeBold, size: Constants.titleLabelFontSize) 
+        titleLabel.font = UIFont(name: AppFont.manropeBold, size: Constants.titleLabelFontSize)
         titleLabel.textColor = .text
         
         subtitleLabel.textColor = .text
@@ -83,5 +83,25 @@ final class StationView: BaseView {
             stackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: Constants.stackViewBottomAnchorConstant)
         ])
+    }
+    
+    private func getAttributedSubtitleText(with distance: String, _ address: String) -> NSMutableAttributedString {
+        let distanceAttributedString = NSMutableAttributedString(string: distance)
+        let address = distance.isEmpty ? address : " • \(address)"
+        let addressAttributedString = NSMutableAttributedString(string: address)
+        
+        distanceAttributedString.addAttribute(.font,
+                                              value: UIFont(name: AppFont.manropeBold,
+                                                            size: Constants.subtitleLabelFontSize) ?? UIFont.boldSystemFont(ofSize: Constants.subtitleLabelFontSize),
+                                              range: NSRange(location: 0, length: distance.count))
+        addressAttributedString.addAttribute(.font,
+                                             value: UIFont(name: AppFont.manropeMedium, size: Constants.subtitleLabelFontSize) ?? UIFont.systemFont(ofSize: Constants.subtitleLabelFontSize, weight: .medium),
+                                             range: NSRange(location: 0, length: address.count))
+        
+        let combinedAttributedString = NSMutableAttributedString()
+        combinedAttributedString.append(distanceAttributedString)
+        combinedAttributedString.append(addressAttributedString)
+        
+        return combinedAttributedString
     }
 }

@@ -38,7 +38,7 @@
 		BEC660A12BF0C267004DCBFC /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */; };
 		BED90C9E2BF011BF0031B0E2 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED90C972BF011A40031B0E2 /* Manrope-Bold.ttf */; };
 		BED90CA22BF011CB0031B0E2 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED90C9C2BF011AD0031B0E2 /* Manrope-Medium.ttf */; };
-		BED90CA82BF013130031B0E2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED90CA72BF013130031B0E2 /* Fonts.swift */; };
+		BED90CA82BF013130031B0E2 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED90CA72BF013130031B0E2 /* AppFont.swift */; };
 		BEFBB0D32BEBA35400B3E46A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB0D22BEBA35400B3E46A /* AppDelegate.swift */; };
 		BEFBB0D72BEBA35400B3E46A /* StationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB0D62BEBA35400B3E46A /* StationsListViewController.swift */; };
 		BEFBB0DC2BEBA35800B3E46A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFBB0DB2BEBA35800B3E46A /* Assets.xcassets */; };
@@ -78,7 +78,7 @@
 		BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
 		BED90C972BF011A40031B0E2 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		BED90C9C2BF011AD0031B0E2 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
-		BED90CA72BF013130031B0E2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BED90CA72BF013130031B0E2 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		BEFBB0CF2BEBA35400B3E46A /* BikeStationsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeStationsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFBB0D22BEBA35400B3E46A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEFBB0D62BEBA35400B3E46A /* StationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsListViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +192,7 @@
 				BEFBB0D22BEBA35400B3E46A /* AppDelegate.swift */,
 				BE6BDC512BEE4EB0006BCB1D /* AppCoordinator.swift */,
 				BE73829C2BF0EB4100C56646 /* AppError.swift */,
+				BED90CA72BF013130031B0E2 /* AppFont.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -233,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				BED90CA92BF0213E0031B0E2 /* Manrope */,
-				BED90CA72BF013130031B0E2 /* Fonts.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				BE6BDC522BEE4EB0006BCB1D /* AppCoordinator.swift in Sources */,
 				BE6BDC582BEE8C48006BCB1D /* LocationService.swift in Sources */,
 				BE03662D2BED28E1002CED8F /* StationDetailViewController.swift in Sources */,
-				BED90CA82BF013130031B0E2 /* Fonts.swift in Sources */,
+				BED90CA82BF013130031B0E2 /* AppFont.swift in Sources */,
 				BE9B998F2BEBCD6700850DA4 /* StationStatusResponseDto.swift in Sources */,
 				BE9B99932BEBEAF700850DA4 /* StationStatusDataDto.swift in Sources */,
 				BE0366392BED6731002CED8F /* StationDetailViewModel.swift in Sources */,
