@@ -11,6 +11,7 @@ import CoreLocation
 
 protocol StationsListViewModelDelegate: AnyObject {
     func viewModel(_ viewModel: StationsListViewModel, didFetch stations: [Station])
+    func viewModel(_ viewModel: StationsListViewModel, didOccurr error: AppError)
 }
 
 final class StationsListViewModel {
@@ -36,7 +37,7 @@ final class StationsListViewModel {
         Publishers.Zip(stationsAPIService.fetchStationInformation(),
                        stationsAPIService.fetchStationStatus())
         .map { [weak self] infoStations, statusStations -> [Station] in
-            statusStations.compactMap { statusStation in
+            let stations: [Station] = statusStations.compactMap { statusStation in
                 guard let infoStation = infoStations.first(where: { $0.id == statusStation.id }) else {
                     return nil
                 }
@@ -45,22 +46,25 @@ final class StationsListViewModel {
                 
                 return Station(info: infoStation, status: statusStation, distance: distance)
             }
-            .sorted { $0.distance ?? 0 < $1.distance ?? 0 }
+            
+            return stations
         }
+        .map { stations in
+            stations.sorted { $0.distance ?? 0 < $1.distance ?? 0 }
+        }
+        .convertToResult()
         .receive(on: RunLoop.main)
-        .sink { completion in
-            switch completion {
-            case let .failure(error):
-                print("Couldn't get stations: \(error)")
-            case .finished:
-                break
-            }
-        } receiveValue: { [weak self] stations in
+        .sink { [weak self] result in
             guard let self else {
                 return
             }
             
-            delegate?.viewModel(self, didFetch: stations)
+            switch result {
+            case let .success(stations):
+                delegate?.viewModel(self, didFetch: stations)
+            case .failure:
+                delegate?.viewModel(self, didOccurr: .fetchSectionsFailed)
+            }
         }
         .store(in: &cancellables)
     }
@@ -85,7 +89,7 @@ extension StationsListViewModel: LocationServiceDelegate {
         userLocation = location
     }
     
-    func didFailWithError(_ error: Error) {
-        print(error)
+    func didFailWithError(_ error: AppError) {
+        delegate?.viewModel(self, didOccurr: error)
     }
 }

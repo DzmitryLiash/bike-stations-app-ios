@@ -16,7 +16,7 @@ class StationPointView: BaseView {
     
     private enum Constants {
         static let stackViewTopAnchorConstant: CGFloat = 4
-        static let stackViewTrailingAnchorConstant: CGFloat = -6
+        static let stackViewTrailingAnchorConstant: CGFloat = -5
         static let stackViewBottomAnchorConstant: CGFloat = -4
         static let stackViewLeadingAnchorConstant: CGFloat = 5
         static let bikeImageViewHeight: CGFloat = 16

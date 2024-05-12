@@ -16,4 +16,3 @@ extension UITableViewCell: ReuseIdentifier {
         String(describing: self)
     }
 }
-

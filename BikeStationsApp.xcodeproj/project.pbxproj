@@ -19,6 +19,7 @@
 		BE6BDC522BEE4EB0006BCB1D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6BDC512BEE4EB0006BCB1D /* AppCoordinator.swift */; };
 		BE6BDC542BEE5467006BCB1D /* StationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6BDC532BEE5467006BCB1D /* StationViewViewModel.swift */; };
 		BE6BDC582BEE8C48006BCB1D /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6BDC572BEE8C48006BCB1D /* LocationService.swift */; };
+		BE73829D2BF0EB4100C56646 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE73829C2BF0EB4100C56646 /* AppError.swift */; };
 		BE9B99752BEBB7EE00850DA4 /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */; };
 		BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99762BEBB81B00850DA4 /* Endpoint.swift */; };
 		BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99782BEBB84E00850DA4 /* APIClient.swift */; };
@@ -34,6 +35,7 @@
 		BE9B99932BEBEAF700850DA4 /* StationStatusDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99922BEBEAF700850DA4 /* StationStatusDataDto.swift */; };
 		BE9B99952BEBEB5F00850DA4 /* StationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99942BEBEB5F00850DA4 /* StationInfo.swift */; };
 		BE9B99972BEBEB8000850DA4 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9B99962BEBEB8000850DA4 /* Station.swift */; };
+		BEC660A12BF0C267004DCBFC /* PublisherExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */; };
 		BED90C9E2BF011BF0031B0E2 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED90C972BF011A40031B0E2 /* Manrope-Bold.ttf */; };
 		BED90CA22BF011CB0031B0E2 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED90C9C2BF011AD0031B0E2 /* Manrope-Medium.ttf */; };
 		BED90CA82BF013130031B0E2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED90CA72BF013130031B0E2 /* Fonts.swift */; };
@@ -57,6 +59,7 @@
 		BE6BDC512BEE4EB0006BCB1D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		BE6BDC532BEE5467006BCB1D /* StationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewViewModel.swift; sourceTree = "<group>"; };
 		BE6BDC572BEE8C48006BCB1D /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		BE73829C2BF0EB4100C56646 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		BE9B99742BEBB7EE00850DA4 /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
 		BE9B99762BEBB81B00850DA4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		BE9B99782BEBB84E00850DA4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		BE9B99922BEBEAF700850DA4 /* StationStatusDataDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationStatusDataDto.swift; sourceTree = "<group>"; };
 		BE9B99942BEBEB5F00850DA4 /* StationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfo.swift; sourceTree = "<group>"; };
 		BE9B99962BEBEB8000850DA4 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtension.swift; sourceTree = "<group>"; };
 		BED90C972BF011A40031B0E2 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		BED90C9C2BF011AD0031B0E2 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		BED90CA72BF013130031B0E2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				BE2520C12BECE7C5002ACB5A /* ReuseIdentifier.swift */,
+				BEC660A02BF0C267004DCBFC /* PublisherExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			children = (
 				BEFBB0D22BEBA35400B3E46A /* AppDelegate.swift */,
 				BE6BDC512BEE4EB0006BCB1D /* AppCoordinator.swift */,
+				BE73829C2BF0EB4100C56646 /* AppError.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 				BE9B99892BEBC16700850DA4 /* StationInfoDto.swift in Sources */,
 				BEFBB0D72BEBA35400B3E46A /* StationsListViewController.swift in Sources */,
 				BE03663B2BED76DF002CED8F /* StationPointView.swift in Sources */,
+				BE73829D2BF0EB4100C56646 /* AppError.swift in Sources */,
 				BE9B997B2BEBB8E200850DA4 /* StationsAPIService.swift in Sources */,
 				BE2520C72BECE8DE002ACB5A /* BaseViewController.swift in Sources */,
 				BE9B99912BEBDF3200850DA4 /* StationStatusDto.swift in Sources */,
@@ -400,6 +407,7 @@
 				BE0366392BED6731002CED8F /* StationDetailViewModel.swift in Sources */,
 				BE9B99772BEBB81B00850DA4 /* Endpoint.swift in Sources */,
 				BE9B99792BEBB84E00850DA4 /* APIClient.swift in Sources */,
+				BEC660A12BF0C267004DCBFC /* PublisherExtension.swift in Sources */,
 				BEFBB0D32BEBA35400B3E46A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,9 +555,12 @@
 				DEVELOPMENT_TEAM = FTBRR688DQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BikeStationsApp/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,9 +585,12 @@
 				DEVELOPMENT_TEAM = FTBRR688DQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BikeStationsApp/Resources/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "BikeStationsApp uses your location information to show the distance to the station";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
