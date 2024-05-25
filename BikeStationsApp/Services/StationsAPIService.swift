@@ -9,22 +9,13 @@ import Combine
 
 protocol StationsAPI: APIClient {
     func fetchStationInformation() -> AnyPublisher<[StationInfo], Error>
-    func fetchStationStatus() -> AnyPublisher<[StationStatus], Error>
 }
 
 struct StationsAPIService: StationsAPI {
     func fetchStationInformation() -> AnyPublisher<[StationInfo], Error> {
-        return fetch(endpoint: StationInfoEndpoint())
+        fetch(endpoint: CityBikeInfoEndpoint())
             .map { info in
-                info.data.stations.map(StationInfo.init)
-            }
-            .eraseToAnyPublisher()
-    }
-    
-    func fetchStationStatus() -> AnyPublisher<[StationStatus], Error> {
-        return fetch(endpoint: StationStatusEndpoint())
-            .map { status in
-                status.data.stations.map(StationStatus.init)
+                info.network.stations.map(StationInfo.init)
             }
             .eraseToAnyPublisher()
     }

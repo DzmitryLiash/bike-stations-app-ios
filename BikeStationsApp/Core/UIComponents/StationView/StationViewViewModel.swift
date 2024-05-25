@@ -8,7 +8,7 @@
 final class StationViewViewModel {
     
     var title: String {
-        "\(station.info.id) \(station.info.name)"
+        station.info.name
     }
     
     var distance: String {
@@ -30,16 +30,12 @@ final class StationViewViewModel {
         return "\(Int(distance))m"
     }
     
-    var address: String {
-        station.info.address
+    var freeBikesCount: String {
+        String(station.info.freeBikes)
     }
     
-    var bikesAvailableCount: String {
-        String(station.status.numberBikesAvailable)
-    }
-    
-    var docksAvailableCount: String {
-        String(station.status.numberDocksAvailable)
+    var emptySlotsCount: String {
+        String(station.info.emptySlots)
     }
     
     private let station: Station

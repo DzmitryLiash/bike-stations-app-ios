@@ -18,7 +18,7 @@ protocol Endpoint {
 
 extension Endpoint {
     var baseURL: URL {
-        guard let url = URL(string: "https://gbfs.urbansharing.com/rowermevo.pl") else {
+        guard let url = URL(string: "https://api.citybik.es/v2") else {
             fatalError("baseURL could not be configured.")
         }
         

@@ -12,8 +12,8 @@ final class StationDetailViewModel {
     
     let stationViewViewModel: StationViewViewModel
     
-    var bikesAvailableCount: Int {
-        station.status.numberBikesAvailable
+    var freeBikesCount: Int {
+        station.info.freeBikes
     }
     
     private enum Constants {
@@ -40,7 +40,7 @@ final class StationDetailViewModel {
     }
     
     private func getCoordinate() -> CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: station.info.lat, longitude: station.info.lon)
+        CLLocationCoordinate2D(latitude: station.info.latitude, longitude: station.info.longitude)
     }
     
     private func getCoordinateSpan() -> MKCoordinateSpan {

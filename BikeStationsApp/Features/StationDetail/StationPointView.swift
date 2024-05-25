@@ -26,8 +26,8 @@ class StationPointView: BaseView {
         
     private let numberBikesAvailable: Int
 
-    init(numberBikesAvailable: Int) {
-        self.numberBikesAvailable = numberBikesAvailable
+    init(freeBikesCount: Int) {
+        self.numberBikesAvailable = freeBikesCount
         super.init()
     }
     

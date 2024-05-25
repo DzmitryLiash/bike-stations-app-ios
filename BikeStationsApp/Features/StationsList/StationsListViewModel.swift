@@ -36,42 +36,37 @@ final class StationsListViewModel {
     }
     
     func loadStations() {
-        Publishers.Zip(stationsAPIService.fetchStationInformation(),
-                       stationsAPIService.fetchStationStatus())
-        .map { [weak self] infoStations, statusStations -> [Station] in
-            let stations: [Station] = statusStations.compactMap { statusStation in
-                guard let infoStation = infoStations.first(where: { $0.id == statusStation.id }) else {
-                    return nil
+        stationsAPIService.fetchStationInformation()
+            .map { [weak self] stationsInfo -> [Station] in
+                let stations: [Station] = stationsInfo.map { stationInfo -> Station in
+                    let distance = self?.getDistance(latitude: stationInfo.latitude, longitude: stationInfo.longitude)
+                    
+                    return Station(info: stationInfo, distance: distance)
                 }
                 
-                let distance = self?.getDistance(latitude: infoStation.lat, longitude: infoStation.lon)
+                return stations
+            }
+            .map { stations in
+                stations.sorted { $0.distance ?? 0 < $1.distance ?? 0 }
+            }
+            .handleEvents(receiveOutput: { stations in
+                self.stations = stations
+            })
+            .convertToResult()
+            .receive(on: RunLoop.main)
+            .sink { [weak self] result in
+                guard let self else {
+                    return
+                }
                 
-                return Station(info: infoStation, status: statusStation, distance: distance)
+                switch result {
+                case .success:
+                    delegate?.viewModelDidFetchStations(self)
+                case .failure:
+                    delegate?.viewModel(self, didOccurr: .fetchSectionsFailed)
+                }
             }
-            
-            return stations
-        }
-        .map { stations in
-            stations.sorted { $0.distance ?? 0 < $1.distance ?? 0 }
-        }
-        .handleEvents(receiveOutput: { stations in
-            self.stations = stations
-        })
-        .convertToResult()
-        .receive(on: RunLoop.main)
-        .sink { [weak self] result in
-            guard let self else {
-                return
-            }
-            
-            switch result {
-            case .success:
-                delegate?.viewModelDidFetchStations(self)
-            case .failure:
-                delegate?.viewModel(self, didOccurr: .fetchSectionsFailed)
-            }
-        }
-        .store(in: &cancellables)
+            .store(in: &cancellables)
     }
     
     func showDetails(for station: Station) {
