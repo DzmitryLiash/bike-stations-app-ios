@@ -6,16 +6,15 @@
 //
 
 struct StationInfoDto: Codable {
-    let id: String
     let name: String
-    let address: String
-    let crossStreet: String
-    let lat: Double
-    let lon: Double
+    let latitude: Double
+    let longitude: Double
+    let emptySlots: Int
+    let freeBikes: Int
     
     enum CodingKeys: String, CodingKey {
-        case id = "station_id"
-        case name, address, lat, lon
-        case crossStreet = "cross_street"
+        case name, latitude, longitude
+        case emptySlots = "empty_slots"
+        case freeBikes = "free_bikes"
     }
 }

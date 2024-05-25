@@ -29,9 +29,9 @@ final class StationView: BaseView {
     
     func load(_ viewModel: StationViewViewModel) {
         titleLabel.text = viewModel.title
-        subtitleLabel.attributedText = getAttributedSubtitleText(with: viewModel.distance, viewModel.address)
-        bikesView.numberLabelText = viewModel.bikesAvailableCount
-        placesView.numberLabelText = viewModel.docksAvailableCount
+        subtitleLabel.text = viewModel.distance
+        bikesView.numberLabelText = viewModel.freeBikesCount
+        placesView.numberLabelText = viewModel.emptySlotsCount
     }
     
     override func addSubviews() {
@@ -61,6 +61,7 @@ final class StationView: BaseView {
         titleLabel.font = UIFont(name: AppFont.manropeBold, size: Constants.titleLabelFontSize)
         titleLabel.textColor = .text
         
+        subtitleLabel.font = UIFont(name: AppFont.manropeMedium, size: Constants.subtitleLabelFontSize)
         subtitleLabel.textColor = .text
         
         stackView.distribution = .fillProportionally

@@ -21,12 +21,12 @@ final class StationsListViewController: BaseViewController {
     
     private enum Constants {
         static let tableViewTopAnchorConstant: CGFloat = 20
-        static let tableViewHeightForRowConstant: CGFloat = 208
+        static let tableViewHeightForRowConstant: CGFloat = 220
     }
     
     private let viewModel: StationsListViewModel
     
-    init(viewModel: StationsListViewModel = StationsListViewModel()) {
+    init(viewModel: StationsListViewModel) {
         self.viewModel = viewModel
         super.init()
         viewModel.delegate = self
@@ -89,10 +89,10 @@ final class StationsListViewController: BaseViewController {
     override func handle(error: Error) {
         if let appError = error as? AppError, appError == .fetchSectionsFailed {
             let alert = UIAlertController(title: "Error", message: appError.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Try again", style: .cancel) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: "Try again", style: .default) { [weak self] _ in
                 self?.viewModel.loadStations()
             })
-            alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
             present(alert, animated: true)
         } else {

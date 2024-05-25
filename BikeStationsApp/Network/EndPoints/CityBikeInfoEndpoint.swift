@@ -5,10 +5,10 @@
 //  Created by Dzmitry Liashchou on 08/05/2024.
 //
 
-struct StationInfoEndpoint: Endpoint {
+struct CityBikeInfoEndpoint: Endpoint {
     var path: String {
-        "/station_information.json"
+        "/networks/veturilo-nextbike-warsaw"
     }
     
-    typealias responseType = StationInfoResponseDto
+    typealias responseType = CityBikeInfoDto
 }
